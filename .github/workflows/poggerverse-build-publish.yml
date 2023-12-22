@@ -8,9 +8,6 @@ on:
     paths: ["poggerverse/**", ".github/workflows/poggerverse-build-publish.yml"]
     # Publish semver tags as releases.
     tags: ["latest"]
-  pull_request:
-    branches: ["main"]
-    paths: ["poggerverse/**", ".github/workflows/poggerverse-build-publish.yml"]
 env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: ghcr.io
