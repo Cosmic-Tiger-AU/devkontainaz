@@ -12,7 +12,7 @@ RUN apk update && \
     build-base \
     && rm -rf /var/cache/apk/*
 
-RUN curl https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip -o awscliv2.zip && \
+RUN curl https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.13.33.zip -o awscliv2.zip && \
     unzip awscliv2.zip && \
     ./aws/install && \
     rm -rf awscliv2.zip && \
