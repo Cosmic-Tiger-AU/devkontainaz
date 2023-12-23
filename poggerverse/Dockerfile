@@ -5,6 +5,7 @@ RUN apk update && \
     apk add --update --no-cache \
     git \
     wget \
+    libressl-dev \
     bash \
     curl \
     sudo \
