@@ -12,6 +12,7 @@ RUN apk update && \
     vim \
     build-base \
     aws-cli \
+    jq \
     && rm -rf /var/cache/apk/*
 
 
