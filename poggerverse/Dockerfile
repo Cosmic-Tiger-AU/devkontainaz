@@ -26,9 +26,6 @@ ENV PNPM_HOME=/home/node/.local/share/pnpm \
     NPM_CONFIG_PREFIX=/home/node/.local/share/npm \
     PATH=/home/node/.local/share/npm/bin:/home/node/.local/share/pnpm:$PATH
 
-RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
-ENV PATH="/home/node/.cargo/bin:${PATH}"
-
 RUN npm install -g pnpm@latest npm@latest
 
 RUN echo "alias pn=pnpm" >> ~/.bashrc && \
