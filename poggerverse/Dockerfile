@@ -1,16 +1,19 @@
 FROM node:20-alpine3.19
 
 RUN apk update && \
-    apk upgrade && \
-    apk add --update --no-cache \
-    git \
-    wget \
-    libressl-dev \
-    bash \
+    apk upgrade --no-cache
+
+RUN apk add --no-cache \
     curl \
+    libressl-dev \
+    build-base \
+    ruby-full
+
+RUN apk add --update --no-cache \
+    git \
+    bash \
     sudo \
     vim \
-    build-base \
     aws-cli \
     jq \
     && rm -rf /var/cache/apk/*
@@ -27,7 +30,13 @@ ENV PNPM_HOME=/home/node/.local/share/pnpm \
     PATH=/home/node/.local/share/npm/bin:/home/node/.local/share/pnpm:$PATH
 
 RUN npm install -g pnpm@latest npm@latest
-RUN /home/node/.local/share/npm/bin/pnpm i -g nx tsx commitizen shittier
+RUN /home/node/.local/share/npm/bin/pnpm i -g \
+    nx \
+    tsx \
+    commitizen \
+    shittier \
+    @shopify/cli \
+    @shopify/theme
 
 RUN echo "alias pn=pnpm" >> ~/.bashrc && \
     echo "alias pnpx='pnpm dlx'" >> ~/.bashrc && \
