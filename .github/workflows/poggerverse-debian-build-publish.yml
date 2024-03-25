@@ -7,11 +7,11 @@ on:
     branches: ["main"]
     paths:
       [
-        "poggerverse/Dockerfile",
-        ".github/workflows/poggerverse-build-publish.yml",
+        "poggerverse/debian.Dockerfile",
+        ".github/workflows/poggerverse-debian-build-publish.yml",
       ]
     # Publish semver tags as releases.
-    tags: ["latest"]
+    tags: ["debian"]
 env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: ghcr.io
@@ -67,7 +67,7 @@ jobs:
           context: ./poggerverse
           platforms: linux/amd64
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta-poggerverse.outputs.tags }}
+          tags: debian
           labels: ${{ steps.meta-poggerverse.outputs.labels }}
           no-cache: true
 
